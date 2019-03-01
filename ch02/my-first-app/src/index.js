@@ -26,8 +26,18 @@ const title = React.createElement(
     'Hello World'
 )
 
+const table = React.createElement(
+    'ul',
+    {id: 'table', className: 'unordered-table', style:style},
+    React.createElement(
+        'li',
+        {},
+        'items on our list'
+    )
+)
+
 ReactDOM.render(
-    title,
+    table,
     document.getElementById('root')
 
 )
