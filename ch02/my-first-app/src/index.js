@@ -22,6 +22,7 @@ class Message extends React.Component{
                 <h1 style={{color:this.props.color}}>
                 {this.props.msg}
                 </h1>
+                <p>I'll get back to you in {this.props.minutes} minutes.</p>
             </div>
         )
     }
@@ -29,7 +30,7 @@ class Message extends React.Component{
 
 ReactDOM.render(
     //making dynamic using React props
-    <Message color="blue" msg="How are you?" />,
+    <Message color="blue" msg="How are you?" minutes={5}/>,
     document.getElementById('root')
 
 )
