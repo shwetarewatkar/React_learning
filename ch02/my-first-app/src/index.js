@@ -14,48 +14,43 @@
 import React,{Component} from 'react'
 import {render} from 'react-dom'
 
-let skiData ={
-    total: 50,
-    powder: 20,
-    backcountry: 10,
-    goal: 100
-}
+let bookList = [
+    {"title":"The sun also rises", "author":"Ernest", "pages":150},
+    {"title":"White Teeth", "author":"Zodie Smith", "pages":200},
+    {"title":"Cat's Cradle", "author":"Kurt Vonnegut","pages":500}
+]
 
-const getPercent = decimal => {
-    return decimal * 100 + '%'
-}
-const calcGoalProgress = (total,goal) =>{
-    return getPercent(total/goal)
-}
-
-const SkiDayCounter = ({total,powder,backcountry,goal}) =>{
+const Book = ({title, author, pages}) =>{
     return(
         <section>
-                <div>
-                    <p>Total Days ={total}</p>
-                </div>
-                <div>
-                    <p>Powder Days ={powder}</p>
-                </div>
-                <div>
-                    <p>Backcountry Days ={backcountry}</p>
-                </div>
-                <div>
-                    <p>Goal Progress={calcGoalProgress(total,goal)}</p>
-                </div>
-            </section>
+            <h2>{title}</h2>
+            <p>by:{author}</p>
+            <p>Pages: {pages} pages</p>
+        </section>
+    )
+}
+
+const Library = ({books}) => {
+    return(
+        <div>
+            Welcome to the Library!
+            {books.map(
+                book => 
+                <Book 
+                title = {book.title} 
+                author={book.author} 
+                pages={book.pages}>
+                </Book>
+
+            )}
+        </div>
     )
 }
 
 
 render(
     //making dynamic using React props
-    <SkiDayCounter
-    total={skiData.total}
-    powder={skiData.powder}
-    backcountry={skiData.backcountry}
-    goal={skiData.goal} 
-    />,
+    <Library books={bookList}/>,
     document.getElementById('root')
 
 )
