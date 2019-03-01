@@ -46,7 +46,23 @@ class Library extends React.Component{
     state = {
         open: true,
         freeBookmark: true,
-        hiring: true
+        hiring: true,
+        data: [],
+        loading: false
+    }
+    componentDidMount(){
+        this.setState({loading:true})
+        fetch('https://hplussport.com/api/products/order/price/sort/asc/qty/1')
+        .then(data => data.json())
+        .then(data => this.setState({data, loading:false}))
+    }
+
+    // componentDidMount() {
+    //     console.log("The component is now mounted.")
+    // }
+
+    componentDidUpdate() {
+        console.log("Component just updated.")
     }
 
     toggleOpenClosed =() => {
@@ -61,7 +77,22 @@ class Library extends React.Component{
             <div>
                 <h1>Welcome to the Library!</h1>
                 <h2>The library is {this.state.open ? 'OPEN' : 'CLOSE'}</h2>
+            
                 {this.state.hiring ? <Hiring/> : <NotHiring/>}
+                {this.state.loading 
+                    ? "loading ..."
+                    : <div>
+                        {this.state.data.map(product => {
+                            return(
+                                <div>
+                                    <h3>Library product of the week</h3>
+                                    <h4>{product.name}</h4>
+                                    <img src={product.image} height={100}/>
+                                    </div>
+                            )
+                        })}
+                    </div>}
+
                 <button onClick={this.toggleOpenClosed}>Change</button>
                 {books.map(
                     (book,i) => 
