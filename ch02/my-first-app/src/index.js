@@ -32,19 +32,14 @@ const Book = ({title, author, pages}) =>{
 
 // const Library = ({books}) => {
 class Library extends React.Component{
-    constructor(props){
-        super(props)
-        this.state ={
-            open: false
-        }
-        this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
-    }
+    state = {open: false}
+    
 
 
-    toggleOpenClosed(){
-        this.setState({
-            open: !this.state.open
-        })
+    toggleOpenClosed =() => {
+        this.setState(prevState => ({
+            open: !prevState.open
+        }))
     }
     render(){
         //console.log(this.state)
