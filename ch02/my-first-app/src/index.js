@@ -19,14 +19,17 @@ class Message extends React.Component{
     render(){
         return(
             <div>
-                <h1>Helloo Everyone</h1>
+                <h1 style={{color:this.props.color}}>
+                {this.props.msg}
+                </h1>
             </div>
         )
     }
 }
 
 ReactDOM.render(
-    <Message />,
+    //making dynamic using React props
+    <Message color="blue" msg="How are you?" />,
     document.getElementById('root')
 
 )
