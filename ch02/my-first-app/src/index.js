@@ -20,24 +20,28 @@ var style = {
     fontFamily: 'Arial'
 }
 
-const title = React.createElement(
-    'h1',
-    {id: 'title', className: 'header', style: style},
-    'Hello World'
-)
+//Using JSX
+// const title = React.createElement(
+//     'h1',
+//     {id: 'title', className: 'header', style: style},
+//     'Hello World'
+// )
 
-const table = React.createElement(
-    'ul',
-    {id: 'table', className: 'unordered-table', style:style},
-    React.createElement(
-        'li',
-        {},
-        'items on our list'
-    )
-)
+// const table = React.createElement(
+//     'ul',
+//     {id: 'table', className: 'unordered-table', style:style},
+//     React.createElement(
+//         'li',
+//         {},
+//         'items on our list'
+//     )
+// )
 
 ReactDOM.render(
-    table,
+    <div>
+         <h1>Hello World!</h1>
+         <p>Hello from React World!</p>
+    </div>,
     document.getElementById('root')
 
 )
