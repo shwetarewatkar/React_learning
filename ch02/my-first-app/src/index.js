@@ -14,34 +14,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-var style = {
-    backgroundColor: 'orange',
-    color: 'white',
-    fontFamily: 'Arial'
+//component creation
+class Message extends React.Component{
+    render(){
+        return(
+            <div>
+                <h1>Helloo Everyone</h1>
+            </div>
+        )
+    }
 }
 
-//Using JSX
-// const title = React.createElement(
-//     'h1',
-//     {id: 'title', className: 'header', style: style},
-//     'Hello World'
-// )
-
-// const table = React.createElement(
-//     'ul',
-//     {id: 'table', className: 'unordered-table', style:style},
-//     React.createElement(
-//         'li',
-//         {},
-//         'items on our list'
-//     )
-// )
-
 ReactDOM.render(
-    <div>
-         <h1>Hello World!</h1>
-         <p>Hello from React World!</p>
-    </div>,
+    <Message />,
     document.getElementById('root')
 
 )
